@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "bMrWFmyve9p7uhGOGRHjE+GBHO7mm8TgmkORdmaEpDM=",
+  "Source": "PSOManagement",
+  "BasePath": "_content/PSOManagement",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

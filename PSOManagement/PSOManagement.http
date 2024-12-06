@@ -1,0 +1,6 @@
+@PSOManagement_HostAddress = http://localhost:5219
+
+GET {{PSOManagement_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
