@@ -39,7 +39,7 @@ namespace PSOManagement.Controllers
             payload.OrganizationId = int.Parse(organizationId??"");
 
             var res = await _purchaseRepository.Add(payload, userId);
-            return Ok(true);
+            return Ok(res);
         }
     }
 }

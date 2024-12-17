@@ -7,5 +7,6 @@ namespace PSOManagement.IRepo
     {
         Task<UserResponseModel> GetUserByUsernameAsync(string username);
         Task<ResponseModel> AddUserAsync(UserRequestModel payload);
+        Task<GetUserResponseModel> GetUserById(int UserId);
     }
 }

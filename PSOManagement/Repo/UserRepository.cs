@@ -52,5 +52,33 @@ namespace PSOManagement.Repo
             }
         }
 
+        public async Task<GetUserResponseModel> GetUserById(int UserId)
+        {
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                string spName = "GetUserById";
+
+                var parameters = new
+                {
+                    UserId = UserId
+                };
+
+                var result = await connection.QueryMultipleAsync(
+                    spName,
+                    parameters,
+                    commandType: System.Data.CommandType.StoredProcedure);
+
+                var screens = result.Read<UserScreen>().ToList();
+
+                var user = result.ReadFirstOrDefault<GetUserResponseModel>();
+
+                if (user != null)
+                {
+                    user.UserScreens = screens;
+                }
+
+                return user;
+            }
+        }
     }
 }

@@ -8,16 +8,16 @@ namespace PSOManagement.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class OrganizationController : ControllerBase
+    public class GeneralController : ControllerBase
     {
-        private readonly IOrganizationRepository _organizationRepository;
+        private readonly IGeneralRepository _organizationRepository;
 
-        public OrganizationController(IOrganizationRepository organizationRepository)
+        public GeneralController(IGeneralRepository organizationRepository)
         {
             _organizationRepository = organizationRepository;
         }
 
-        [HttpGet(Name = "GetOrganization")]
+        [HttpGet("GetOrganization")]
         public async Task<IEnumerable<OrganizationResponseModel>> GetOrganization()
         {
             var organizations = await _organizationRepository.GetOrganization();
@@ -25,12 +25,26 @@ namespace PSOManagement.Controllers
             return organizations;
         }
 
-        [HttpGet("id", Name = "GetOrganizationById")]
+        [HttpGet("GetOrganizationById/{id}")]
         public async Task<OrganizationResponseModel> GetOrganizationById(int Id)
         {
             var organizations = await _organizationRepository.GetOrganizationById(Id);
 
             return organizations;
+        }
+        [HttpGet("GetDepartments")]
+        public async Task<IEnumerable<DepartmentResponseModel>> GetDepartments()
+        {
+            var departments = await _organizationRepository.GetDepartments();
+
+            return departments;
+        }
+        [HttpGet("GetStatus")]
+        public async Task<IEnumerable<StatusResponseModel>> GetStatus()
+        {
+            var status = await _organizationRepository.GetStatus();
+
+            return status;
         }
     }
 }
